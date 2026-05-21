@@ -10,6 +10,7 @@
   "author": "wutdahack1337",
   "license": "ISC",
   "dependencies": {
+    "better-sqlite3": "^12.10.0",
     "express": "^5.2.1"
   }
 }
