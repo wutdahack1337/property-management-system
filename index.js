@@ -19,5 +19,5 @@ app.use("/api/building", buildingRouter);
 
 
 const server = app.listen(PORT, HOST, () => {
-    console.log("Server is starting...");
+    console.log("Server is running...");
 });
