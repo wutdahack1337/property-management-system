@@ -11,3 +11,7 @@ node install better-sqlite3
 
 curl -X POST http://localhost:1337/api/building   -H "Content-Type: application/json"   -d '{"name":"Minh"}'
 ```
+
+```
+npm run dev
+```
