@@ -5,11 +5,14 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "wutdahack1337",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.2.1"
+    "better-sqlite3": "^12.10.0",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
   }
 }
