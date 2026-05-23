@@ -3,6 +3,7 @@ import express from "express";
 import buildingRouter from "./route/building.js";
 import unitRouter from "./route/unit.js";
 import residentRouter from "./route/resident.js";
+import accountRouter from "./route/account.js";
 
 const HOST = "localhost";
 const PORT = 1337;
@@ -23,6 +24,7 @@ app.use("/api/unit", unitRouter);
 
 app.use("/api/resident", residentRouter);
 
+app.use("/api/account", accountRouter);
 
 const server = app.listen(PORT, HOST, () => {
     console.log("Server is running...");
