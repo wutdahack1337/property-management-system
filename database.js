@@ -10,4 +10,13 @@ database.exec(`
     );
 `);
 
+database.exec(`
+    CREATE TABLE IF NOT EXISTS unit (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        buildingId INTEGER,
+        status TEXT NOT NULL,
+        FOREIGN KEY (buildingId) REFERENCES building(id)
+    );
+`);
+
 export default database
