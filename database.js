@@ -34,5 +34,16 @@ database.exec(`
     );
 `);
 
+// account
+database.exec(`
+    CREATE TABLE IF NOT EXISTS account (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        residentId INTEGER UNIQUE,
+        username TEXT NOT NULL UNIQUE,
+        password TEXT NOT NULL,
+        FOREIGN KEY (residentId) REFERENCES resident(id)
+    )    
+`);
+
 
 export default database

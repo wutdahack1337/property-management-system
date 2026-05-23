@@ -46,6 +46,12 @@ curl -X PATCH http://localhost:1337/api/resident/1 -H "Content-Type: application
 curl -X DELETE http://localhost:1337/api/resident/1
 ```
 
+## Account API
+
+```
+curl -X PATCH http://localhost:1337/api/account/1 -H "Content-Type: application/json" -d '{"username":"minhdeptrai"}'
+curl -X DELETE http://localhost:1337/api/account/4
+```
 
 ## SQLite3 commands
 
