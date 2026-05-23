@@ -18,13 +18,27 @@ router.get("/", (request, response) => {
 });
 
 router.patch("/:id", (request, response) => {
-    // const id = request.params.id;
-    // const { buildingId, status} = request.body;
+    const id = request.params.id;
+    const { buildingId, status} = request.body;
+
+    if (buildingId !== undefined) {
+        database.prepare("UPDATE unit SET buildingId = ? WHERE id = ?").run(buildingId, id);
+    }
+    if (status !== undefined) { 
+        database.prepare("UPDATE unit SET status = ? WHERE id = ?").run(status, id);
+    }
+
+    console.log("I'm fine");
+
+    const responseContent = database.prepare("SELECT id, buildingId, status FROM unit WHERE id = ?").get(id);
+    response.json(responseContent);
 });
 
 
-router.delete("/", (request, response) => {
-
+router.delete("/:id", (request, response) => {
+    const id = request.params.id;
+    database.prepare("DELETE FROM unit WHERE id = ?").run(id);
+    response.status(204).send();
 });
 
 
