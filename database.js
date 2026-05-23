@@ -23,4 +23,16 @@ database.exec(`
     );
 `);
 
+// resident
+database.exec(`
+    CREATE TABLE IF NOT EXISTS resident (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        unitId INTEGER,
+        name TEXT NOT NULL,
+        phoneNumber TEXT NOT NULL,
+        FOREIGN KEY (unitId) REFERENCES unit(id)
+    );
+`);
+
+
 export default database
