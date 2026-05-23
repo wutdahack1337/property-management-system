@@ -36,6 +36,17 @@ curl -X PATCH http://localhost:1337/api/unit/1 -H "Content-Type: application/jso
 curl -X DELETE http://localhost:1337/api/unit/1
 ```
 
+## Resident API
+
+```
+curl -X POST http://localhost:1337/api/resident -H "Content-Type: application/json" -d '{"unitId": 1, "name":"Minh", "phoneNumber":"1234567890"}'
+
+curl -X PATCH http://localhost:1337/api/resident/1 -H "Content-Type: application/json" -d '{"name":"Hai"}'
+
+curl -X DELETE http://localhost:1337/api/resident/1
+```
+
+
 ## SQLite3 commands
 
 ```

@@ -2,6 +2,7 @@ import express from "express";
 
 import buildingRouter from "./route/building.js";
 import unitRouter from "./route/unit.js";
+import residentRouter from "./route/resident.js";
 
 const HOST = "localhost";
 const PORT = 1337;
@@ -9,7 +10,7 @@ const PORT = 1337;
 const app = express();
 app.use(express.json()); // to extract json
 
-// API
+//========= API =========
 app.get("/api/health", (request, response) => {
     response.json({
         status: "ok",
@@ -19,6 +20,8 @@ app.get("/api/health", (request, response) => {
 app.use("/api/building", buildingRouter);
 
 app.use("/api/unit", unitRouter);
+
+app.use("/api/resident", residentRouter);
 
 
 const server = app.listen(PORT, HOST, () => {
