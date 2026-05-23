@@ -1,4 +1,4 @@
-import { response, Router } from "express";
+import { Router } from "express";
 
 import database from "../database.js";
 
@@ -22,13 +22,13 @@ router.patch("/:id", (request, response) => {
     const { residentId, username, password } = request.body;
 
     if (residentId !== undefined) {
-        const result = database.prepare("UPDATE account SET residentId = ? WHERE id = ?").run(residentId, id);
+        database.prepare("UPDATE account SET residentId = ? WHERE id = ?").run(residentId, id);
     }
     if (username !== undefined) {
-        const result = database.prepare("UPDATE account SET username = ? WHERE id = ?").run(username, id);
+        database.prepare("UPDATE account SET username = ? WHERE id = ?").run(username, id);
     }
     if (password !== undefined) { 
-        const result = database.prepare("UPDATE password SET residentId = ? WHERE id = ?").run(password, id);
+        database.prepare("UPDATE account SET password = ? WHERE id = ?").run(password, id);
     }
     
     const responseContent = database.prepare("SELECT id, residentId, username FROM account WHERE id = ?").get(id);
