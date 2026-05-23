@@ -11,8 +11,6 @@ const app = express();
 app.use(express.json()); // to extract json
 
 //========= API =========
-
-
 app.get("/api/health", (request, response) => {
     response.json({
         status: "ok",

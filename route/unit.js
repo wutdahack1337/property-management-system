@@ -19,7 +19,7 @@ router.get("/", (request, response) => {
 
 router.patch("/:id", (request, response) => {
     const id = request.params.id;
-    const { buildingId, status} = request.body;
+    const { buildingId, name, status} = request.body;
 
     if (buildingId !== undefined) {
         database.prepare("UPDATE unit SET buildingId = ? WHERE id = ?").run(buildingId, id);
@@ -34,7 +34,6 @@ router.patch("/:id", (request, response) => {
     const responseContent = database.prepare("SELECT id, buildingId, name, status FROM unit WHERE id = ?").get(id);
     response.json(responseContent);
 });
-
 
 router.delete("/:id", (request, response) => {
     const id = request.params.id;
