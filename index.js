@@ -1,6 +1,7 @@
 import express from "express";
 
 import buildingRouter from "./route/building.js";
+import unitRouter from "./route/unit.js";
 
 const HOST = "localhost";
 const PORT = 1337;
@@ -16,6 +17,8 @@ app.get("/api/health", (request, response) => {
 });
 
 app.use("/api/building", buildingRouter);
+
+app.use("/api/unit", unitRouter);
 
 
 const server = app.listen(PORT, HOST, () => {
