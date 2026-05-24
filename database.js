@@ -1,7 +1,7 @@
 import Database from "better-sqlite3";
 
 
-const database = new Database("database.db");
+const database = new Database(process.env.NODE_ENV === "test" ? ":memory:" : "database.db");
 database.pragma("foreign_keys = ON"); // enforce referential integrity
 
 // building

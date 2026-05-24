@@ -2,34 +2,16 @@ import { Router } from "express";
 
 import database from "../database.js";
 
+import { createBuilding, getBuilding, updateBuilding, deleteBuilding} from "../controller/building.js"
+
 const router = Router();
 
-router.post("/", (request, response) => {
-    const { name } = request.body;
-    const result = database.prepare("INSERT INTO building (name) VALUES (?)").run(name);
-    const responseContent = database.prepare("SELECT id, name FROM building WHERE id = ?").get(result.lastInsertRowid);
-    response.status(201).json(responseContent);
-});
+router.post("/", createBuilding);
 
-router.get("/", (_, response) => {
-    const responseContent = database.prepare("SELECT id, name FROM building").all();
-    response.status(200).json(responseContent);
-});
+router.get("/", getBuilding);
 
-router.patch("/:id", (request, response) => {
-    const id = request.params.id;
-    const { name } = request.body;
-    const result = database.prepare("UPDATE building SET name = ? WHERE id = ?").run(name, id);
-    const responseContent = database.prepare("SELECT id, name FROM building WHERE id = ?").get(id);
-    response.status(200).json(responseContent);
-});
+router.patch("/:id", updateBuilding);
 
-router.delete("/:id", (request, response) => {
-    const id = request.params.id;
-    const _ = database.prepare("DELETE FROM building WHERE id = ?").run(id);
-    response.status(204).send();
-});
-
-
+router.delete("/:id", deleteBuilding);
 
 export default router
