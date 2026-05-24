@@ -9,7 +9,7 @@ router.post("/", (request, response) => {
 
     const result = database.prepare("INSERT INTO unit (buildingId, name, status) VALUES (?, ?, ?)").run(buildingId, name, status);
     const responseContent = database.prepare("SELECT id, buildingId, name, status FROM unit WHERE id = ?").get(result.lastInsertRowid);
-    response.status(200).json(responseContent);
+    response.status(201).json(responseContent);
 });
 
 router.get("/", (request, response) => {
@@ -32,7 +32,7 @@ router.patch("/:id", (request, response) => {
     }
 
     const responseContent = database.prepare("SELECT id, buildingId, name, status FROM unit WHERE id = ?").get(id);
-    response.json(responseContent);
+    response.status(200).json(responseContent);
 });
 
 router.delete("/:id", (request, response) => {

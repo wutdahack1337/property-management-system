@@ -9,12 +9,12 @@ router.post("/", (request, response) => {
 
     const result = database.prepare("INSERT INTO resident (unitId, name, phoneNumber) VALUES (?, ?, ?)").run(unitId, name, phoneNumber);
     const responseContent = database.prepare("SELECT id, unitId, name, phoneNumber FROM resident WHERE id = ?").get(result.lastInsertRowid);
-    response.json(responseContent);
+    response.status(201).json(responseContent);
 });
 
 router.get("/", (request, response) => {
     const responseContent = database.prepare("SELECT id, unitId, name, phoneNumber FROM resident").all();
-    response.json(responseContent);
+    response.status(200).json(responseContent);
 });
 
 
@@ -33,7 +33,7 @@ router.patch("/:id", (request, response) => {
     }
     
     const responseContent = database.prepare("SELECT id, unitId, name, phoneNumber FROM resident WHERE id = ?").get(id);
-    response.json(responseContent);
+    response.status(200).json(responseContent);
 });
 
 

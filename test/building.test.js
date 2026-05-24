@@ -29,21 +29,21 @@ describe("GET /api/building", () => {
 
 describe("PATCH /api/building", () => {
     it("happy path", async () => {
-        const response = await request(app).patch("/api/building/1").send({name:"AAA"});
+        const response = await request(app).patch("/api/building/2").send({name:"BBB"});
 
         expect(response.status).toBe(200);
-        expect(response.body).toMatchObject({id:1, name:"AAA"});
+        expect(response.body).toMatchObject({id:2, name:"BBB"});
     });
 });
 
 describe("DELETE /api/building", () => {
     it("happy path", async () => {
-        const deleteResponse = await request(app).delete("/api/building/1");
+        const deleteResponse = await request(app).delete("/api/building/2");
         expect(deleteResponse.status).toBe(204);
 
         const getResponse = await request(app).get("/api/building");
         expect(getResponse.body).not.toEqual(expect.arrayContaining([
-            expect.objectContaining({id: 1, name:"AAA"})
+            expect.objectContaining({id: 2})
         ]));
     });
 });
