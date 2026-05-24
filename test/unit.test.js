@@ -32,7 +32,7 @@ describe("GET /api/unit", () => {
 });
 
 describe("PATCH /api/unit", () => {
-    it("happy path", async () => {
+    it("update happy path", async () => {
         const response = await request(app).patch("/api/unit/2").send({status: "occupied"});
         
         expect(response.status).toBe(200);
@@ -41,7 +41,7 @@ describe("PATCH /api/unit", () => {
 });
 
 describe("DELETE /api/unit", () => {
-    it("happy path", async () => {
+    it("delete happy path", async () => {
         const response = await request(app).delete("/api/unit/2");
         
         expect(response.status).toBe(204);
