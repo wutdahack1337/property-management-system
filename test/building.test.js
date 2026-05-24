@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import request from "supertest";
-import app from "./app.js";
+import app from "../app.js";
 
 // not add async because I will use this items for another queries
 describe("POST /api/building", () => {

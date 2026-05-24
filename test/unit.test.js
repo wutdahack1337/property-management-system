@@ -42,10 +42,11 @@ describe("PATCH /api/unit", () => {
 
 describe("DELETE /api/unit", () => {
     it("delete happy path", async () => {
-        const response = await request(app).delete("/api/unit/2");
-        
-        expect(response.status).toBe(204);
-        expect(response.body).not.toEqual(expect.arrayContaining([
+        const deleteResponse = await request(app).delete("/api/unit/2");
+        expect(deleteResponse.status).toBe(204);
+
+        const getResponse = await request(app).get("/api/unit");
+        expect(getResponse.body).not.toEqual(expect.arrayContaining([
             expect.objectContaining({id: 2})
         ]))
     });

@@ -10,8 +10,11 @@ export async function getBuilding(){
 }
 
 export async function updateBuilding(id, name){
-    const result = await database.prepare("UPDATE building SET name = ? WHERE id = ?").run(name, id);
-    return database.prepare("SELECT id, name FROM building WHERE id = ?").get(id);
+    if (name !== undefined) {
+        await database.prepare("UPDATE building SET name = ? WHERE id = ?").run(name, id);
+    }
+    
+    return await database.prepare("SELECT id, name FROM building WHERE id = ?").get(id);
 }
 
 export async function deleteBuilding(id){
