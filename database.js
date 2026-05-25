@@ -42,8 +42,10 @@ database.exec(`
         username TEXT NOT NULL UNIQUE,
         password TEXT NOT NULL,
         FOREIGN KEY (residentId) REFERENCES resident(id)
-    )    
+    )
 `);
 
+
+database.prepare("INSERT OR IGNORE INTO account (username, password) VALUES ('admin', 'admin')").run();
 
 export default database

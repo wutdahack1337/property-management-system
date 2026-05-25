@@ -6,7 +6,7 @@ export async function createAccount(request, response, next) {
         const responseContent = await service.createAccount(residentId, username, password);
         response.status(201).json(responseContent);
     } catch (error) {
-        // next(error);
+        next(error);
     }
 }
 
@@ -15,7 +15,7 @@ export async function getAccount(request, response, next) {
         const responseContent = await service.getAccount();
         response.status(200).json(responseContent);
     } catch (error) {
-        // next(error);
+        next(error);
     }
 }
 
@@ -27,7 +27,7 @@ export async function updateAccount(request, response, next) {
         const responseContent = await service.updateAccount(id, residentId, username, password);
         response.status(200).json(responseContent);
     } catch (error) {
-        // next(error);
+        next(error);
     }
 }
 
@@ -38,6 +38,6 @@ export async function deleteAccount(request, response, next) {
         await service.deleteAccount(id);
         response.status(204).send();
     } catch (error) {
-        // next(error);
+        next(error);
     }
 }
