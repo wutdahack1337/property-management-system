@@ -30,5 +30,9 @@ app.use("/api/auth", authRouter);
 app.use("/api/resident", requireAuth, residentRouter);
 app.use("/api/account", requireAuth, accountRouter);
 
+app.use((error, request, response, next) => {
+    console.error(request.method, request.path, error);
+    response.status(500).json({error: "internal server error"});
+});
 
 export default app
