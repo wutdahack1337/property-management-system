@@ -1,0 +1,13 @@
+// add this to enable checking for JavaScript
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "noImplicitAny": false, // turn off the strict type checking
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
+  },
+  "include": ["**/*.js"]
+}
