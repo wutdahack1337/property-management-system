@@ -1,15 +1,13 @@
 # download node.js 20
 FROM node:20-alpine 
 
-# all commands will run int /app dir in container
+# all commands will run in /app dir in container
 WORKDIR /app 
 
 COPY package*.json ./
 
 # install the dependencies
-RUN apk add --no-cache python3 make g++
-RUN npm ci
-RUN apk del python3 make g++
+RUN apk add --no-cache python3 make g++ && npm ci && apk del python3 make g++
 
 COPY . .
 
