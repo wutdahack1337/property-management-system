@@ -2,7 +2,7 @@
 
 import app from "./app.js";
 
-const HOST = "localhost";
+const HOST = "0.0.0.0";
 const PORT = 1337;
 
 app.listen(PORT, HOST, () => {

@@ -1,5 +1,23 @@
 # property-management-system
 
+## Docker
+```
+# Build image từ Dockerfile
+docker build -t my-app .
+
+# Chạy container từ image vừa build
+docker run -p 1337:1337 -v $(pwd)/database.db:/app/database.db my-app
+
+docker ps
+docker stop <container_id>
+
+# background run
+docker compose up -d 
+docker compose down
+```
+
+---
+
 ```
 npm init
 npm install express
