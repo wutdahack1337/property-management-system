@@ -7,7 +7,7 @@ export async function createBuilding(request, response, next) {
         response.status(201).json(responseContent);
     }
     catch (error) {
-        // next(error);
+        next(error);
     }
 }
 
@@ -16,7 +16,7 @@ export async function getBuilding(request, response, next) {
         const responseContent = await service.getBuilding();
         response.status(200).json(responseContent);
     } catch (error) {
-        // next(error)
+        next(error);
     }
 }
 
@@ -27,7 +27,7 @@ export async function updateBuilding(request, response, next) {
         const responseContent = await service.updateBuilding(id, name);
         response.status(200).json(responseContent);
     } catch (error) {
-        // next(error)
+        next(error);
     }
 }
 

@@ -6,7 +6,7 @@ export async function createUnit(request, response, next){
         const responseContent = await service.createUnit(buildingId, name, status);
         response.status(201).json(responseContent);
     } catch (error) {
-        // next(error);
+        next(error);
     }
 }
 
@@ -16,7 +16,7 @@ export async function getUnit(request, response, next){
         const responseContent = await service.getUnit();
         response.status(200).json(responseContent);
     } catch (error) {
-        // next(error);
+        next(error);
     }
 }
 
@@ -40,6 +40,6 @@ export async function deleteUnit(request, response, next){
         await service.deleteUnit(id);
         response.status(204).send();
     } catch (error) {
-        // next(error);
+        next(error);
     }
 }
